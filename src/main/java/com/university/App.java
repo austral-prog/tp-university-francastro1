@@ -9,53 +9,19 @@ import java.util.*;
 public class App {
 
     public static void main(String[] args) {
-        String inputFilePath = "src/main/resources/input.csv";
-        String outputFilePath = "src/main/resources/solution.csv";
 
-        Map<String, Integer> studentCourseCounts = processCSV(inputFilePath);
-        writeOutputCSV(outputFilePath, studentCourseCounts);
-    }
+        String inputPath1 = "src/main/resources/input.csv";
+        String outputPath1 = "src/main/resources/solution.csv";
 
-    private static Map<String, Integer> processCSV(String filePath) {
-        Map<String, Set<String>> studentCourses = new HashMap<>();
+        Map<String, Integer> studentCounts = CSVProcessor.processStudentCoursesCSV(inputPath1);
+        CSVProcessor.writeStudentCourseCountCSV(outputPath1, studentCounts);
 
-        try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
-            String line;
-            reader.readLine();
+        String inputPath2 = "src/main/resources/input_2.csv"; // Asegúrate de que este archivo tenga el contenido correcto
+        String outputPath2 = "src/main/resources/solution_2.csv";
 
-            while ((line = reader.readLine()) != null) {
-                String[] parts = line.split(",");
-                String studentName = parts[2].trim();
-                String courseName = parts[1].trim();
-                Set<String> courses = studentCourses.get(studentName);
-                if (courses == null) {
-                    courses = new HashSet<>();
-                    studentCourses.put(studentName, courses);
-                }
-                courses.add(courseName);
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        CSVProcessor.processEvaluationsCSV(inputPath2, outputPath2);
 
-        Map<String, Integer> studentCounts = new HashMap<>();
-        for (Map.Entry<String, Set<String>> entry : studentCourses.entrySet()) {
-            studentCounts.put(entry.getKey(), entry.getValue().size());
-        }
-        return studentCounts;
-    }
+        System.out.println("Archivos CSV procesados y escritos exitosamente.");
 
-    private static void writeOutputCSV(String filePath, Map<String, Integer> studentCounts) {
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
-            writer.write("Student_Name,Course_Count\n");
-            List<Map.Entry<String, Integer>> sortedEntries = new ArrayList<>(studentCounts.entrySet());
-            sortedEntries.sort(Map.Entry.comparingByKey());
-
-            for (Map.Entry<String, Integer> entry : sortedEntries) {
-                writer.write(entry.getKey() + "," + entry.getValue() + "\n");
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
     }
 }
