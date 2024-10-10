@@ -10,7 +10,7 @@ public class CSVProcessor {
 
         try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
             String line;
-            reader.readLine(); // Salta el encabezado
+            reader.readLine();
 
             while ((line = reader.readLine()) != null) {
                 String[] parts = line.split(",");

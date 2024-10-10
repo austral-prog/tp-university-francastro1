@@ -16,7 +16,7 @@ public class App {
         Map<String, Integer> studentCounts = CSVProcessor.processStudentCoursesCSV(inputPath1);
         CSVProcessor.writeStudentCourseCountCSV(outputPath1, studentCounts);
 
-        String inputPath2 = "src/main/resources/input_2.csv"; // Asegúrate de que este archivo tenga el contenido correcto
+        String inputPath2 = "src/main/resources/input_2.csv";
         String outputPath2 = "src/main/resources/solution_2.csv";
 
         CSVProcessor.processEvaluationsCSV(inputPath2, outputPath2);
