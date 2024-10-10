@@ -15,7 +15,7 @@ public class AppTest {
 
     @Test
     public void testSolutionCSVMatchesExpected() {
-        String solutionFilePath = "src/main/resources/solution.csv";
+        String solutionFilePath = "src/main/resougitrces/solution.csv";
         String expectedFilePath = "src/main/resources/expected.csv";
 
         // Check if solution.csv exists before running the test
