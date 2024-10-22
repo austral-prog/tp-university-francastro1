@@ -1,4 +1,7 @@
-package com.university;
+package com.university.classroom;
+
+import com.university.entity.Student;
+import com.university.entity.Teacher;
 
 import java.util.ArrayList;
 import java.util.List;

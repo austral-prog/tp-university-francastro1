@@ -1,9 +1,11 @@
-package com.university;
+package com.university.entity;
+
+import com.university.classroom.Course;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class Student extends Person{
+public class Student extends Person {
     private List<Course> courses;
     private String email;
     private int courseCount;

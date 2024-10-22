@@ -1,4 +1,4 @@
-package com.university;
+package com.university.entity;
 
 public class Teacher extends Person {
     private String subject;

@@ -1,4 +1,4 @@
-package com.university;
+package com.university.entity;
 
 public abstract class Person implements Entity {
 

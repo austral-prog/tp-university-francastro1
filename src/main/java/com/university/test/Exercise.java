@@ -1,6 +1,8 @@
-package com.university;
+package com.university.test;
 
-public class Exercise implements Entity{
+import com.university.entity.Entity;
+
+public class Exercise implements Entity {
 
     private String name;
 

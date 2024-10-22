@@ -1,4 +1,6 @@
-package com.university;
+package com.university.test;
+
+import com.university.entity.Entity;
 
 import java.util.ArrayList;
 import java.util.List;
