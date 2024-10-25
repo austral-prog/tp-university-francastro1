@@ -8,13 +8,11 @@ import java.util.List;
 public class Student extends Person {
     private List<Course> courses;
     private String email;
-    private int courseCount;
 
     public Student(String name, int courseCount, String email) {
         super(name);
         this.courses = new ArrayList<>();
         this.email = email;
-        this.courseCount = courseCount;
     }
 
     public List<Course> getCourses() {
