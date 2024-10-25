@@ -7,7 +7,7 @@ import java.util.*;
 
 public class CSVProcessor {
 
-    public static Map<String, Integer> processStudentCoursesCSV(String filePath) {
+    public static Map<String, Integer> processCSV1(String filePath) {
         Map<String, Set<String>> studentCourses = new HashMap<>();
 
         try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
@@ -35,7 +35,7 @@ public class CSVProcessor {
         return studentCounts;
     }
 
-    public static void writeStudentCourseCountCSV(String filePath, Map<String, Integer> studentCounts) {
+    public static void writeCSV1(String filePath, Map<String, Integer> studentCounts) {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
             writer.write("Student_Name,Course_Count\n");
 
@@ -50,7 +50,7 @@ public class CSVProcessor {
         }
     }
 
-    public static void processEvaluationsCSV(String inputPath, String outputPath) {
+    public static void processCSV2(String inputPath, String outputPath) {
         Map<String, List<Evaluation>> evaluationsMap = new HashMap<>();
 
         try (BufferedReader reader = new BufferedReader(new FileReader(inputPath))) {
@@ -71,10 +71,10 @@ public class CSVProcessor {
             e.printStackTrace();
         }
 
-        writeEvaluationsCSV(outputPath, evaluationsMap);
+        writeCSV2(outputPath, evaluationsMap);
     }
 
-    private static void writeEvaluationsCSV(String filePath, Map<String, List<Evaluation>> evaluations) {
+    private static void writeCSV2(String filePath, Map<String, List<Evaluation>> evaluations) {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
             writer.write("Subject_Name,Evaluation_Name,Student_Name,Grade\n");
 
