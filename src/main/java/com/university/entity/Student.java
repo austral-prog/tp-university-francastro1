@@ -9,7 +9,7 @@ public class Student extends Person {
     private List<Course> courses;
     private String email;
 
-    public Student(String name, int courseCount, String email) {
+    public Student(String name, String email) {
         super(name);
         this.courses = new ArrayList<>();
         this.email = email;
@@ -30,6 +30,7 @@ public class Student extends Person {
     public String getEmail() {
         return email;
     }
+
 }
 
 

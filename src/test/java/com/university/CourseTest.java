@@ -27,7 +27,7 @@ public class CourseTest {
 
     @Test
     public void testAddStudent() {
-        Student student = new Student("Jane Doe", 0, "jane@example.com");
+        Student student = new Student("Jane Doe", "jane@example.com");
         course.addStudent(student);
 
         assertEquals(1, course.getStudents().size());

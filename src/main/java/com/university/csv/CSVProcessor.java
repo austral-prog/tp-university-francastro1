@@ -1,6 +1,6 @@
 package com.university.csv;
 
-import com.university.test.Evaluation;
+import com.university.test.evaluation.Evaluation;
 
 import java.io.*;
 import java.util.*;
