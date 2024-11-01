@@ -2,20 +2,19 @@ package com.university.entity;
 
 import com.university.classroom.Course;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class Student extends Person {
-    private List<Course> courses;
+    private HashSet<Course> courses;
     private String email;
 
     public Student(String name, String email) {
         super(name);
-        this.courses = new ArrayList<>();
+        this.courses = new HashSet<>();
         this.email = email;
     }
 
-    public List<Course> getCourses() {
+    public HashSet<Course> getCourses() {
         return courses;
     }
 

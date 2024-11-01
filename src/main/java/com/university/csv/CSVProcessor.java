@@ -1,5 +1,8 @@
 package com.university.csv;
 
+import com.university.University;
+import com.university.classroom.Course;
+import com.university.entity.Student;
 import com.university.test.evaluation.Evaluation;
 
 import java.io.*;
@@ -7,9 +10,7 @@ import java.util.*;
 
 public class CSVProcessor {
 
-    public static Map<String, Integer> processCSV1(String filePath) {
-        Map<String, Set<String>> studentCourses = new HashMap<>();
-
+    public static void processCSV1(String filePath, University university) {
         try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
             String line;
             reader.readLine();
@@ -18,29 +19,44 @@ public class CSVProcessor {
                 String[] parts = line.split(",");
                 String studentName = parts[2].trim();
                 String courseName = parts[1].trim();
+                String email = parts[3].trim();
 
-                Set<String> courses = studentCourses.getOrDefault(studentName, new HashSet<>());
-                courses.add(courseName);
-                studentCourses.put(studentName, courses);
+                Student student = university.getStudents().stream()
+                        .filter(s -> s.getName().equals(studentName))
+                        .findFirst()
+                        .orElse(null);
+
+                if (student == null) {
+                    student = new Student(studentName, email);
+                    university.addStudent(student);
+                }
+
+                Course course = university.getCourses().stream()
+                        .filter(c -> c.getClassroom() == Integer.parseInt(parts[0].trim()))
+                        .findFirst()
+                        .orElse(null);
+
+                if (course == null) {
+                    course = new Course(Integer.parseInt(parts[0].trim()), null); // Asumiendo que Teacher es opcional
+                    university.addCourse(course);
+                }
+
+                student.addToCourse(course);
+                course.addStudent(student);
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
-
-        Map<String, Integer> studentCounts = new HashMap<>();
-        for (Map.Entry<String, Set<String>> entry : studentCourses.entrySet()) {
-            studentCounts.put(entry.getKey(), entry.getValue().size());
-        }
-
-        return studentCounts;
     }
 
-    public static void writeCSV1(String filePath, Map<String, Integer> studentCounts) {
+    public static void writeCSV1(String filePath, University university) {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
             writer.write("Student_Name,Course_Count\n");
 
-            List<Map.Entry<String, Integer>> sortedEntries = new ArrayList<>(studentCounts.entrySet());
-            sortedEntries.sort(Map.Entry.comparingByKey());
+            Map<String, Integer> studentCounts = university.getStudentCourseCounts();
+
+            // Usando Sorter para ordenar alfabéticamente
+            List<Map.Entry<String, Integer>> sortedEntries = Sorter.sortByName(studentCounts);
 
             for (Map.Entry<String, Integer> entry : sortedEntries) {
                 writer.write(entry.getKey() + "," + entry.getValue() + "\n");
@@ -49,6 +65,7 @@ public class CSVProcessor {
             e.printStackTrace();
         }
     }
+
 
     public static void processCSV2(String inputPath, String outputPath) {
         Map<String, List<Evaluation>> evaluationsMap = new HashMap<>();
