@@ -1,13 +1,14 @@
-package com.university.classroom;
+package com.university.entity.classroom;
 
-import com.university.entity.Student;
-import com.university.entity.Teacher;
+import com.university.entity.Entity;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class Course {
+public class Course implements Entity {
 
+    private static int idCounter = 0;
+    private int id;
     private List<Student> students;
     private String subject;
     private int classroom;
@@ -16,6 +17,7 @@ public class Course {
         if (classroom < 0) {
             throw new IllegalArgumentException("Classroom number cannot be negative");
         }
+        this.id = idCounter++;
         this.classroom = classroom;
         this.students = new ArrayList<>();
         this.subject = subject;
@@ -42,8 +44,28 @@ public class Course {
         this.classroom = classroom;
     }
 
-    public String getSubject() {
-        return subject;
+    @Override
+    public int getId() {
+        return this.id;
     }
+
+    @Override
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    @Override
+    public String getName() {
+        return this.subject;
+    }
+
+    @Override
+    public String toString() {
+        return "Course{" +
+                "classroom=" + classroom +
+                ", subject='" + subject + '\'' +
+                '}';
+    }
+
 }
 

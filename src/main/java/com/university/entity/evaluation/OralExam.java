@@ -1,4 +1,4 @@
-package com.university.test.evaluation;
+package com.university.entity.evaluation;
 
 public class OralExam extends Evaluation{
     public OralExam(String name, String studentName,String subjectName, String evaluationType) {

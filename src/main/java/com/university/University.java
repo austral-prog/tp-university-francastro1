@@ -1,9 +1,8 @@
 package com.university;
 
-import com.university.classroom.Course;
-import com.university.entity.Student;
-import com.university.entity.Teacher;
-import com.university.test.evaluation.Evaluation;
+import com.university.entity.classroom.Course;
+import com.university.entity.classroom.Student;
+import com.university.entity.evaluation.Evaluation;
 
 import java.util.*;
 

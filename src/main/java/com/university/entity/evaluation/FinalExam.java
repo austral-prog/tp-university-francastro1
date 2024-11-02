@@ -1,6 +1,4 @@
-package com.university.test.evaluation;
-
-import java.util.List;
+package com.university.entity.evaluation;
 
 public class FinalExam extends Evaluation {
     public FinalExam(String name, String studentName,String subjectName, String evaluationType) {

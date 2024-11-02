@@ -1,4 +1,4 @@
-package com.university.test.evaluation;
+package com.university.entity.evaluation;
 
 public class WrittenExam extends Evaluation{
     public WrittenExam(String name, String studentName,String subjectName, String evaluationType) {

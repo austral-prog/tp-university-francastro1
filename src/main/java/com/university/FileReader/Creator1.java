@@ -3,8 +3,8 @@ package com.university.FileReader;
 import com.university.Creator.CourseCreator;
 import com.university.Creator.StudentCreator;
 import com.university.University;
-import com.university.classroom.Course;
-import com.university.entity.Student;
+import com.university.entity.classroom.Course;
+import com.university.entity.classroom.Student;
 
 public class Creator1 implements Creator{
     @Override

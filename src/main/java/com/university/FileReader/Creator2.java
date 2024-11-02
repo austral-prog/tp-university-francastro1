@@ -2,7 +2,7 @@ package com.university.FileReader;
 
 import com.university.Creator.EvaluationCreator;
 import com.university.University;
-import com.university.test.evaluation.Evaluation;
+import com.university.entity.evaluation.Evaluation;
 
 public class Creator2 implements Creator{
     @Override

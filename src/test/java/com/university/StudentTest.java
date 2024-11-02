@@ -2,8 +2,8 @@ package com.university;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-import com.university.classroom.Course;
-import com.university.entity.Student;
+import com.university.entity.classroom.Course;
+import com.university.entity.classroom.Student;
 import com.university.entity.Teacher;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

@@ -2,12 +2,7 @@ package com.university.csv;
 
 import com.university.FileReader.Creator;
 import com.university.University;
-import com.university.classroom.Course;
-import com.university.entity.Student;
-import com.university.test.evaluation.Evaluation;
 
-import java.io.*;
-import java.util.*;
 import java.io.BufferedReader;
 import java.io.FileReader;
 

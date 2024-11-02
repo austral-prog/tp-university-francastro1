@@ -1,7 +1,6 @@
 package com.university.Creator;
 
-import com.university.University;
-import com.university.entity.Student;
+import com.university.entity.classroom.Student;
 
 import java.util.List;
 

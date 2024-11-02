@@ -1,14 +1,13 @@
 package com.university.entity;
 
-import com.university.Entity;
-
 public abstract class Person implements Entity {
-
-    private String name;
+    private static int idCounter = 0;
     private int id;
+    private String name;
 
     public Person(String name){
         this.name = name;
+        this.id = ++idCounter;
     }
 
     public String getName(){

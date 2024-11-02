@@ -1,6 +1,6 @@
 package com.university.Creator;
 
-import com.university.classroom.Course;
+import com.university.entity.classroom.Course;
 
 import java.util.List;
 

@@ -1,6 +1,6 @@
-package com.university.entity;
+package com.university.entity.classroom;
 
-import com.university.classroom.Course;
+import com.university.entity.Person;
 
 import java.util.*;
 
@@ -31,6 +31,15 @@ public class Student extends Person {
     public String getEmail() {
         return email;
     }
+
+    @Override
+    public String toString() {
+        return "Student{" +
+                "name='" + getName() + '\'' +
+                ", email='" + email +
+                '}';
+    }
+
 
 }
 

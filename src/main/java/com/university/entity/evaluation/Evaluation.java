@@ -1,13 +1,14 @@
-package com.university.test.evaluation;
+package com.university.entity.evaluation;
 
-import com.university.Entity;
+import com.university.entity.Entity;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public abstract class Evaluation implements Entity {
 
-    private int id = 0;
+    private static int idCounter = 0;
+    private int id;
     private String name;
     private String studentName;
     private String subjectName;
@@ -15,7 +16,7 @@ public abstract class Evaluation implements Entity {
     private List<Double> grades;
 
     public Evaluation(String name, String studentName, String subjectName, String evaluationType){
-        this.id += 1;
+        this.id = ++idCounter;
         this.name = name;
         this.studentName = studentName;
         this.subjectName = subjectName;
@@ -52,4 +53,17 @@ public abstract class Evaluation implements Entity {
     public void addGrades(double grade) {
         this.grades.add(grade);
     }
+
+    @Override
+    public String toString() {
+        return "Evaluation{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", studentName='" + studentName + '\'' +
+                ", subjectName='" + subjectName + '\'' +
+                ", evaluationType='" + evaluationType + '\'' +
+                ", grades=" + grades +
+                '}';
+    }
+
 }

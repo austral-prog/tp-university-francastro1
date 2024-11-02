@@ -1,7 +1,7 @@
 package com.university.Creator;
 
 
-import com.university.test.evaluation.*;
+import com.university.entity.evaluation.*;
 
 import java.util.List;
 

@@ -6,10 +6,8 @@ import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.util.List;
 import java.util.Map;
-import com.university.University;
-import com.university.classroom.Course;
-import com.university.entity.Student;
-import com.university.test.evaluation.Evaluation;
+
+import com.university.entity.evaluation.Evaluation;
 
 import java.io.*;
 import java.util.*;
