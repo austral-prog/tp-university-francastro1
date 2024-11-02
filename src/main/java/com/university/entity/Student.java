@@ -19,7 +19,9 @@ public class Student extends Person {
     }
 
     public void addToCourse(Course course){
-        this.courses.add(course);
+        if(!courses.contains(course)){
+            this.courses.add(course);
+        }
     }
 
     public int getCourseCount() {

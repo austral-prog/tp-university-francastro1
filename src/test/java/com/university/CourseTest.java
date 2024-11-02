@@ -14,14 +14,13 @@ public class CourseTest {
 
     @BeforeEach
     public void setUp() {
-        teacher = new Teacher("John Doe", "History", 4321);
-        course = new Course(101, teacher);
+        course = new Course(101, "History");
     }
 
     @Test
     public void testCourseCreation() {
         assertEquals(101, course.getClassroom());
-        assertEquals(teacher, course.getTeacher());
+        assertEquals("History", course.getSubject());
         assertTrue(course.getStudents().isEmpty());
     }
 

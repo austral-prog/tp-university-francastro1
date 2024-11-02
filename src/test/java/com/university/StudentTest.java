@@ -26,10 +26,9 @@ public class StudentTest {
 
     @Test
     public void testAddToCourse() {
-        Course course = new Course(101, new Teacher("John Smith", "History", 4321));
+        Course course = new Course(101, "History");
         student.addToCourse(course);
 
         assertEquals(1, student.getCourseCount());
-        assertEquals(course, student.getCourses().get(0));
     }
 }

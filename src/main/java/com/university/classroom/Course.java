@@ -9,19 +9,22 @@ import java.util.List;
 public class Course {
 
     private List<Student> students;
-    private Teacher teacher;
+    private String subject;
     private int classroom;
 
-    public Course(int classroom, Teacher teacher) {
+    public Course(int classroom, String subject) {
         if (classroom < 0) {
             throw new IllegalArgumentException("Classroom number cannot be negative");
         }
         this.classroom = classroom;
         this.students = new ArrayList<>();
-        this.teacher = teacher;
+        this.subject = subject;
     }
+
     public void addStudent(Student student) {
-        students.add(student);
+        if (!students.contains(student)) {
+            students.add(student);
+        }
     }
 
     public List<Student> getStudents() {
@@ -39,13 +42,8 @@ public class Course {
         this.classroom = classroom;
     }
 
-    public Teacher getTeacher() {
-        return teacher;
-    }
-
-    public void setTeacher(Teacher teacher) {
-        this.teacher = teacher;
+    public String getSubject() {
+        return subject;
     }
 }
-
 

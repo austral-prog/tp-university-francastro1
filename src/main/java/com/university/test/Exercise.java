@@ -1,6 +1,6 @@
 package com.university.test;
 
-import com.university.entity.Entity;
+import com.university.Entity;
 
 public class Exercise implements Entity {
 
@@ -8,6 +8,16 @@ public class Exercise implements Entity {
 
     public Exercise(String name){
         this.name = name;
+    }
+
+    @Override
+    public int getId() {
+        return 0;
+    }
+
+    @Override
+    public void setId(int id) {
+
     }
 
     public String getName() {

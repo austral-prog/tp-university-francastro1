@@ -10,7 +10,7 @@ public class EvaluationTest {
 
     @Test
     public void testEvaluationCreation() {
-        Evaluation evaluation = new Evaluation("Final Exam", "Jane Doe", 8.0, "Math");
+        Evaluation evaluation = new Evaluation("Final Exam", "Jane Doe", 8.0);
 
         assertEquals("Final Exam", evaluation.getName());
         assertEquals("Jane Doe", evaluation.getStudentName());
@@ -20,7 +20,7 @@ public class EvaluationTest {
 
     @Test
     public void testAddExercise() {
-        Evaluation evaluation = new Evaluation("Final Exam", "Jane Doe", 8.0, "Math");
+        Evaluation evaluation = new Evaluation("Final Exam", "Jane Doe", 8.0);
         Exercise exercise = new Exercise("Exercise 1");
         evaluation.addExcercise(exercise);
 
@@ -31,7 +31,7 @@ public class EvaluationTest {
     @Test
     public void testInvalidGrade() {
         Exception exception = assertThrows(IllegalArgumentException.class, () -> {
-            new Evaluation("Final Exam", "Jane Doe", 11.0, "Math");
+            new Evaluation("Final Exam", "Jane Doe", 11.0);
         });
 
         assertEquals("Grade must be between 0 and 10", exception.getMessage());

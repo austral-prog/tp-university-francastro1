@@ -2,24 +2,32 @@ package com.university;
 
 import com.university.classroom.Course;
 import com.university.entity.Student;
+import com.university.entity.Teacher;
+import com.university.test.evaluation.Evaluation;
 
 import java.util.*;
 
 public class University {
     private List<Student> students;
     private List<Course> courses;
+    private List<Evaluation> evaluations;
 
     public University() {
         this.students = new ArrayList<>();
         this.courses = new ArrayList<>();
+        this.evaluations = new ArrayList<>();
     }
 
     public void addStudent(Student student) {
+    if (!this.students.contains(student)) {
         students.add(student);
+    }
     }
 
     public void addCourse(Course course) {
-        courses.add(course);
+        if (!this.courses.contains(course)) {
+            courses.add(course);
+        }
     }
 
     public List<Student> getStudents() {
@@ -29,6 +37,10 @@ public class University {
     public List<Course> getCourses() {
         return courses;
     }
+
+    public List<Evaluation> getEvaluations() {return evaluations;}
+
+    public void addTeacher(Evaluation evaluation) {evaluations.add(evaluation);}
 
     public Map<String, Integer> getStudentCourseCounts() {
         Map<String, Integer> studentCounts = new HashMap<>();

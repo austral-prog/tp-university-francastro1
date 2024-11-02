@@ -1,12 +1,13 @@
 package com.university.test.evaluation;
 
 public class OralExam extends Evaluation{
-    public OralExam(String name, String studentName, double grade, String subjectName) {
-        super(name, studentName, grade, subjectName);
+    public OralExam(String name, String studentName,String subjectName, String evaluationType) {
+        super(name, studentName, subjectName,evaluationType);
     }
 
     @Override
     public double getGrade() {
-        return 0;
+        return getGrades().getFirst();
     }
+
 }
