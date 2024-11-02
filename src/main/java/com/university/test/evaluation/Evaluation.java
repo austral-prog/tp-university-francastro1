@@ -47,6 +47,8 @@ public abstract class Evaluation implements Entity {
         return this.grades;
     }
 
+    public String getEvaluationType(){return this.evaluationType;}
+
     public void addGrades(double grade) {
         this.grades.add(grade);
     }
