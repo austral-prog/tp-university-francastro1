@@ -6,7 +6,7 @@ public class WrittenExam extends Evaluation{
     }
 
     public double getGrade(){
-        int suma = 0;
+        double suma = 0;
         for (double grade : getGrades()){
             suma += grade;
         }

@@ -28,28 +28,27 @@ public class CSVWriter {
             e.printStackTrace();
         }
     }
-}
-/*
-    private static void writeCSV2(String filePath, Map<String, List<Evaluation>> evaluations) {
+
+    public static void writeResults(String filePath, University university) {
+        List<Evaluation> evaluations = university.getEvaluations();
+        Collections.sort(evaluations,
+                Comparator.comparing(Evaluation::getSubjectName)
+                        .thenComparing(Evaluation::getName)
+                        .thenComparing(Evaluation::getStudentName));
+
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
-            writer.write("Subject_Name,Evaluation_Name,Student_Name,Grade\n");
-
-            List<Evaluation> allEvaluations = new ArrayList<>();
-            for (List<Evaluation> evalList : evaluations.values()) {
-                allEvaluations.addAll(evalList);
-            }
-
-            allEvaluations.sort(Comparator.comparing(Evaluation::getSubjectName));
-
-            for (Evaluation evaluation : allEvaluations) {
-                writer.write(evaluation.getSubjectName() + "," +
-                        evaluation.getName() + "," +
-                        evaluation.getStudentName() + "," +
-                        evaluation.getGrade() + "\n");
+            writer.write("Subject_Name,Evaluation_Name,Student_Name,Grade");
+            writer.newLine();
+            for (Evaluation eval : evaluations) {
+                writer.write(eval.getSubjectName() + "," +
+                        eval.getName() + "," +
+                        eval.getStudentName() + "," +
+                        eval.getGrade());
+                writer.newLine();
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
+
 }
-*/

@@ -26,26 +26,4 @@ public class CSVReader {
             e.printStackTrace();
         }
     }
-    /*
-    public static void processCSV2(String inputPath, String outputPath) {
-        Map<String, List<Evaluation>> evaluationsMap = new HashMap<>();
-
-        try (BufferedReader reader = new BufferedReader(new FileReader(inputPath))) {
-            String line;
-            reader.readLine();
-
-            while ((line = reader.readLine()) != null) {
-                String[] parts = line.split(",");
-                String studentName = parts[0].trim();
-                String subjectName = parts[1].trim();
-                String evaluationName = parts[3].trim();
-                String grade = parts[5].trim();
-
-                evaluationsMap.computeIfAbsent(subjectName, k -> new ArrayList<>())
-                        .add(new Evaluation(evaluationName, studentName, Double.parseDouble(grade), subjectName));
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    */
 }

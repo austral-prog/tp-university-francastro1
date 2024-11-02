@@ -13,7 +13,7 @@ public class Creator2 implements Creator{
         String evaluationName = parts[3].trim();
         double grade = Double.parseDouble(parts[5].trim());
         EvaluationCreator evaluationCreator = new EvaluationCreator(university.getEvaluations());
-        Evaluation evaluation  = evaluationCreator.getOrCreateEvaluation(subjectName, evaluationName, studentName, evaluationType, grade);
+        Evaluation evaluation = evaluationCreator.getOrCreateEvaluation(subjectName, evaluationName, studentName, evaluationType, grade);
 
     }
 }
