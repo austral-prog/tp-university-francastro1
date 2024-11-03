@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.university.entity.evaluation.Evaluation;
+import com.university.entity.evaluation.Criterion;
 
 import java.io.*;
 import java.util.*;
@@ -49,4 +50,14 @@ public class CSVWriter {
         }
     }
 
+    public static void generateCSV(String filePath, University university, CriteriaProcessor criteriaProcessor) throws IOException {
+        List<String> results = criteriaProcessor.evaluateStudents(university);
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
+            writer.write("Student,Subject,Status\n");
+            for (String result : results) {
+                writer.write(result);
+                writer.write("\n");
+            }
+        }
+    }
 }

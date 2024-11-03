@@ -65,5 +65,4 @@ public abstract class Evaluation implements Entity {
                 ", grades=" + grades +
                 '}';
     }
-
 }

@@ -1,6 +1,8 @@
 package com.university.Creator;
 
 
+import com.university.University;
+import com.university.entity.classroom.Student;
 import com.university.entity.evaluation.*;
 
 import java.util.List;
@@ -12,19 +14,28 @@ public class EvaluationCreator {
         this.evaluations = evaluations;
     }
 
-    public Evaluation getOrCreateEvaluation(String subjectName, String evaluationName, String studentName, String evaluationType, double grade) {
+    public Evaluation getOrCreateEvaluation(String subjectName, String evaluationName, String studentName, String evaluationType, double grade, University university) {
         Evaluation evaluation = findEvaluation(subjectName, evaluationName, studentName, evaluationType);
+
+        Student student = findStudentByName(studentName, university);
+        if (student == null) {
+            throw new IllegalArgumentException("Student not found in university: " + studentName);
+        }
 
         if (evaluation == null) {
             evaluation = createEvaluation(subjectName, evaluationName, studentName, evaluationType);
             evaluations.add(evaluation);
+            student.addEvaluation(evaluation);
+        } else if (!student.getEvaluations().contains(evaluation)) {
+            student.addEvaluation(evaluation);
         }
 
         evaluation.addGrades(grade);
         return evaluation;
     }
 
-    private Evaluation findEvaluation(String subjectName, String evaluationName, String studentName, String evaluationType) {
+    private Evaluation findEvaluation (String subjectName, String evaluationName, String studentName, String
+            evaluationType){
         for (Evaluation e : evaluations) {
             if (e.getSubjectName().equals(subjectName) &&
                     e.getName().equals(evaluationName) &&
@@ -35,7 +46,6 @@ public class EvaluationCreator {
         }
         return null;
     }
-
     private Evaluation createEvaluation(String subjectName, String evaluationName, String studentName, String evaluationType) {
         switch (evaluationType) {
             case "WRITTEN_EXAM":
@@ -49,6 +59,15 @@ public class EvaluationCreator {
             default:
                 throw new IllegalArgumentException("Unknown evaluation type: " + evaluationType);
         }
+    }
+
+    private Student findStudentByName(String studentName, University university) {
+        for (Student student : university.getStudents()) {
+            if (student.getName().equals(studentName)) {
+                return student;
+            }
+        }
+        return null;
     }
 }
 

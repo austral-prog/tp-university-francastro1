@@ -22,7 +22,7 @@ public class CourseCreator {
 
     private Course findCourseBySubject(String subject) {
         for (Course course : courses) {
-            if (course.getSubject().equals(subject)) {
+            if (course.getName().equals(subject)) {
                 return course;
             }
         }
