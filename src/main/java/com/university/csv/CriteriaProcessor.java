@@ -21,51 +21,8 @@ public class CriteriaProcessor {
             }
         }
         return null;
-    }/*
-    public List<String> evaluateStudents(University university, List<Criterion> criteria) {
-        List<String> results = new ArrayList<>();
-
-        for (Student student : university.getStudents()) {
-            // Mapa para agrupar evaluaciones por materia
-            Map<String, List<Evaluation>> subjectEvaluations = new HashMap<>();
-
-            // Agrupar evaluaciones por el nombre de la materia
-            for (Evaluation evaluation : student.getEvaluations()) {
-                String subject = evaluation.getSubjectName();
-                subjectEvaluations.computeIfAbsent(subject, k -> new ArrayList<>()).add(evaluation);
-            }
-
-            // Evaluar el estado de cada materia usando los criterios definidos
-            for (Map.Entry<String, List<Evaluation>> entry : subjectEvaluations.entrySet()) {
-                String subject = entry.getKey();
-                List<Evaluation> evaluations = entry.getValue();
-
-                // Inicializar criterio como nulo
-                Criterion criterion = null;
-
-                // Buscar un criterio correspondiente para la materia usando un bucle for
-                for (Criterion c : criteria) {
-                    if (c.getSubjectName().equals(subject)) {
-                        criterion = c; // Encontrar el criterio
-                        break; // Salir del bucle una vez encontrado
-                    }
-                }
-
-                // Determinar el estado según el criterio
-                String status = "FAILED"; // Asumimos "FAILED" como predeterminado
-                if (criterion != null) {
-                    // Evaluar al estudiante con el criterio correspondiente
-                    boolean isPassed = criterion.evaluate(student);
-                    status = isPassed ? "PASSED" : "FAILED";
-                }
-
-                // Agregar el resultado
-                results.add(student.getName() + "," + subject + "," + status);
-            }
-        }
-        return results;
     }
-    */
+
     public List<String> evaluateStudents(University university) {
         List<String> results = new ArrayList<>();
 
