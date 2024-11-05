@@ -39,8 +39,6 @@ public class University {
 
     public List<Evaluation> getEvaluations() {return evaluations;}
 
-    public void addTeacher(Evaluation evaluation) {evaluations.add(evaluation);}
-
     public Map<String, Integer> getStudentCourseCounts() {
         Map<String, Integer> studentCounts = new HashMap<>();
         for (Student student : students) {
