@@ -34,11 +34,22 @@ public abstract class Evaluation implements Entity {
         return this.name;
     }
 
+    public void setName(String name){this.name = name;}
+
     public abstract double getGrade();
 
     public String getStudentName() {
         return studentName;
     }
+
+    public void setEvaluationType(String evaluationType) {
+        this.evaluationType = evaluationType;
+    }
+
+    public void setStudentName(String studentName) {
+        this.studentName = studentName;
+    }
+    public void setSubjectName(String subjectName) {this.subjectName = subjectName;}
 
     public String getSubjectName() {
         return subjectName;

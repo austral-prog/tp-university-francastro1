@@ -1,5 +1,5 @@
 package com.university.cli;
-
+/*
 import com.university.Creator.EvaluationCreator;
 import com.university.crudrepository.CRUDRepository;
 import com.university.crudrepository.CourseRepository;
@@ -11,7 +11,7 @@ import com.university.entity.classroom.Student;
 import com.university.entity.evaluation.Evaluation;
 
 import java.util.Scanner;
-/*
+
 public class UniversityCLI implements CLI{
 
     public void runCLI(CRUDRepository<?>[] crudRepositories) {
@@ -178,7 +178,6 @@ public class UniversityCLI implements CLI{
             case 3:
                 System.out.println("Enter ID to update:");
                 int updateId = scanner.nextInt();
-                for
                 System.out.println("Enter new evaluation name, student name, subject name, and evaluation type:");
                 String newEvalName = scanner.next();
                 String newStudentName = scanner.next();
@@ -200,9 +199,9 @@ public class UniversityCLI implements CLI{
         }
     }
 
-}*/
+}
 
-import java.util.Scanner;
+//import java.util.Scanner;
 /*
 public class UniversityCLI implements CLI{
     private Scanner scanner = new Scanner(System.in);

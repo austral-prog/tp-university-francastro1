@@ -13,4 +13,5 @@ public interface CLI {
      *                       operations on that specific entity type.
      */
     void runCLI(CRUDRepository<?>[] crudInterfaces);
+
 }
