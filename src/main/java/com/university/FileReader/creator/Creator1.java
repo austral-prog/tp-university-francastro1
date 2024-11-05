@@ -1,14 +1,15 @@
-package com.university.FileReader;
+package com.university.FileReader.creator;
 
 import com.university.Creator.CourseCreator;
 import com.university.Creator.StudentCreator;
 import com.university.University;
+import com.university.entity.evaluation.criteria.CriteriaProcessor;
 import com.university.entity.classroom.Course;
 import com.university.entity.classroom.Student;
 
-public class Creator1 implements Creator{
+public class Creator1 implements Creator {
     @Override
-    public void create(String[] parts, University university) {
+    public void create(String[] parts, University university, CriteriaProcessor criteriaProcessor) {
         int classroom = Integer.parseInt(parts[0]);
         String subject = parts[1].trim();
         String studentName = parts[2].trim();

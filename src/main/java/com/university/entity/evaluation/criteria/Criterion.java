@@ -1,4 +1,4 @@
-package com.university.entity.evaluation;
+package com.university.entity.evaluation.criteria;
 
 import com.university.entity.classroom.Student;
 

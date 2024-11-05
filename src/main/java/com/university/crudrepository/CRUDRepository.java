@@ -1,6 +1,7 @@
 package com.university.crudrepository;
 
 import com.university.entity.Entity;
+import com.university.entity.classroom.Course;
 
 public interface CRUDRepository<T extends Entity> {
     /**

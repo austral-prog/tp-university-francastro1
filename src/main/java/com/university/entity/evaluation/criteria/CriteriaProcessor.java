@@ -1,8 +1,7 @@
-package com.university.csv;
+package com.university.entity.evaluation.criteria;
 
 import com.university.University;
 import com.university.entity.classroom.Student;
-import com.university.entity.evaluation.Criterion;
 import com.university.entity.evaluation.Evaluation;
 import java.util.*;
 import java.util.List;

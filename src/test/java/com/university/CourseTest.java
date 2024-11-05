@@ -1,50 +1,72 @@
 package com.university;
-import static org.junit.jupiter.api.Assertions.*;
-
 import com.university.entity.classroom.Course;
 import com.university.entity.classroom.Student;
-import com.university.entity.Teacher;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-public class CourseTest {
+import static org.junit.jupiter.api.Assertions.*;
 
+import java.util.List;
+
+public class CourseTest {
     private Course course;
-    private Teacher teacher;
+    private Student student1;
+    private Student student2;
 
     @BeforeEach
     public void setUp() {
-        course = new Course(101, "History");
+        course = new Course(101, "Mathematics");
+        student1 = new Student("John Doe", "john.doe@example.com");
+        student2 = new Student("Jane Smith", "jane.smith@example.com");
     }
 
     @Test
     public void testCourseCreation() {
         assertEquals(101, course.getClassroom());
-        assertEquals("History", course.getSubject());
+        assertEquals("Mathematics", course.getName());
         assertTrue(course.getStudents().isEmpty());
     }
 
     @Test
     public void testAddStudent() {
-        Student student = new Student("Jane Doe", "jane@example.com");
-        course.addStudent(student);
-
-        assertEquals(1, course.getStudents().size());
-        assertEquals(student, course.getStudents().get(0));
+        course.addStudent(student1);
+        List<Student> students = course.getStudents();
+        assertEquals(1, students.size(), "Course should have one student after adding.");
+        assertTrue(students.contains(student1), "Course should contain student1.");
     }
 
     @Test
-    public void testSetClassroom() {
-        course.setClassroom(202);
-        assertEquals(202, course.getClassroom());
+    public void testAddDuplicateStudent() {
+        course.addStudent(student1);
+        course.addStudent(student1);
+        List<Student> students = course.getStudents();
+        assertEquals(1, students.size());
     }
 
     @Test
-    public void testInvalidClassroom() {
+    public void testAddMultipleStudents() {
+        course.addStudent(student1);
+        course.addStudent(student2);
+        List<Student> students = course.getStudents();
+
+        assertEquals(2, students.size());
+        assertTrue(students.contains(student1));
+        assertTrue(students.contains(student2));
+    }
+
+    @Test
+    public void testSetClassroomInvalid() {
         Exception exception = assertThrows(IllegalArgumentException.class, () -> {
             course.setClassroom(-1);
         });
 
         assertEquals("Classroom number cannot be negative", exception.getMessage());
+    }
+
+    @Test
+    public void testGetId() {
+        assertEquals(0, course.getId());
+        Course anotherCourse = new Course(202, "Science");
+        assertEquals(1, anotherCourse.getId());
     }
 }

@@ -29,6 +29,14 @@ public class Course implements Entity {
         }
     }
 
+    public String getSubject() {
+        return subject;
+    }
+
+    public void setSubject(String subject) {
+        this.subject = subject;
+    }
+
     public List<Student> getStudents() {
         return students;
     }
