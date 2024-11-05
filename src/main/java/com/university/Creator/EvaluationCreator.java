@@ -46,7 +46,7 @@ public class EvaluationCreator {
         }
         return null;
     }
-    private Evaluation createEvaluation(String subjectName, String evaluationName, String studentName, String evaluationType) {
+    public static Evaluation createEvaluation(String subjectName, String evaluationName, String studentName, String evaluationType) {
         switch (evaluationType) {
             case "WRITTEN_EXAM":
                 return new WrittenExam(evaluationName, studentName, subjectName, evaluationType);

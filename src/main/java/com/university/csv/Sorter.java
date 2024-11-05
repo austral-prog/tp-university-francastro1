@@ -1,5 +1,7 @@
 package com.university.csv;
 
+import com.university.entity.evaluation.Evaluation;
+
 import java.util.*;
 
 public class Sorter {
@@ -8,6 +10,15 @@ public class Sorter {
         List<Map.Entry<String, Integer>> sortedEntries = new ArrayList<>(data.entrySet());
         sortedEntries.sort(Map.Entry.comparingByKey());
         return sortedEntries;
+    }
+
+    public static List<Evaluation> sortEvaluations(List<Evaluation> evaluations) {
+        evaluations.sort(Comparator
+                .comparing(Evaluation::getSubjectName)
+                .thenComparing(Evaluation::getName)
+                .thenComparing(Evaluation::getStudentName)
+        );
+        return evaluations;
     }
 }
 

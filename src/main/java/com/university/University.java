@@ -17,18 +17,6 @@ public class University {
         this.evaluations = new ArrayList<>();
     }
 
-    public void addStudent(Student student) {
-    if (!this.students.contains(student)) {
-        students.add(student);
-    }
-    }
-
-    public void addCourse(Course course) {
-        if (!this.courses.contains(course)) {
-            courses.add(course);
-        }
-    }
-
     public List<Student> getStudents() {
         return students;
     }

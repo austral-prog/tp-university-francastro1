@@ -35,6 +35,10 @@ public class Student extends Person {
         return email;
     }
 
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
     public void addEvaluation(Evaluation evaluation) {
         if (!evaluations.contains(evaluation)) {
             evaluations.add(evaluation);

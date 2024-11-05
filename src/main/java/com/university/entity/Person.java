@@ -14,6 +14,10 @@ public abstract class Person implements Entity {
         return this.name;
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
     @Override
     public int getId() {
         return id;

@@ -1,36 +1,50 @@
 package com.university;
 
-import com.university.test.Exercise;
-/*
+import com.university.entity.evaluation.FinalExam;
+import com.university.entity.evaluation.OralExam;
+import com.university.entity.evaluation.PracticalWork;
+import com.university.entity.evaluation.WrittenExam;
+import org.junit.jupiter.api.Test;
+import java.util.Arrays;
+
+import static org.junit.jupiter.api.Assertions.*;
+
 public class EvaluationTest {
 
     @Test
-    public void testEvaluationCreation() {
-        Evaluation evaluation = new Evaluation("Final Exam", "Jane Doe", 8.0);
-
-        assertEquals("Final Exam", evaluation.getName());
-        assertEquals("Jane Doe", evaluation.getStudentName());
-        assertEquals(8.0, evaluation.getGrade());
-        assertEquals("Math", evaluation.getSubjectName());
+    public void testFinalExamGrade() {
+        FinalExam finalExam = new FinalExam("Examen Final", "Mona Azure", "Physics", "FINAL_EXAM");
+        finalExam.addGrades(1.0);
+        finalExam.addGrades(9.0);
+        finalExam.addGrades(6.0);
+        double expectedGrade = 1.0 + 9.0 + 6.0;
+        assertEquals(expectedGrade, finalExam.getGrade());
     }
 
     @Test
-    public void testAddExercise() {
-        Evaluation evaluation = new Evaluation("Final Exam", "Jane Doe", 8.0);
-        Exercise exercise = new Exercise("Exercise 1");
-        evaluation.addExcercise(exercise);
-
-        assertEquals(1, evaluation.getExcercises().size());
-        assertEquals(exercise, evaluation.getExcercises().get(0));
+    public void testOralExamGrade() {
+        OralExam oralExam = new OralExam("Primer Parcial", "Paul Pink", "Sociology", "ORAL_EXAM");
+        oralExam.addGrades(3.0);
+        double expectedGrade = 3.0;
+        assertEquals(expectedGrade, oralExam.getGrade());
     }
 
     @Test
-    public void testInvalidGrade() {
-        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
-            new Evaluation("Final Exam", "Jane Doe", 11.0);
-        });
+    public void testPracticalWorkGrade() {
+        PracticalWork practicalWork = new PracticalWork("TP Final", "Hank Green", "Computer Science", "FINAL_PRACTICAL_WORK");
+        practicalWork.addGrades(5.0);
+        practicalWork.addGrades(7.0);
+        double expectedGrade = 7.0;
+        assertEquals(expectedGrade, practicalWork.getGrade());
+    }
 
-        assertEquals("Grade must be between 0 and 10", exception.getMessage());
+    @Test
+    public void testWrittenExamGrade() {
+        WrittenExam writtenExam = new WrittenExam("Segundo Parcial", "Paul Beige", "English", "WRITTEN_EXAM");
+        writtenExam.addGrades(7.0);
+        writtenExam.addGrades(0.0);
+        writtenExam.addGrades(6.0);
+        double expectedGrade = (7.0 + 0.0 + 6.0) / 3.0;
+        assertEquals(expectedGrade, writtenExam.getGrade());
     }
 }
-*/
