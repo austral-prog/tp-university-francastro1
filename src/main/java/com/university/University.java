@@ -25,6 +25,10 @@ public class University {
         return courses;
     }
 
+    public void addCourse(Course course){
+        this.courses.add(course);
+    }
+
     public List<Evaluation> getEvaluations() {return evaluations;}
 
     public void addEvaluation(Evaluation evaluation){

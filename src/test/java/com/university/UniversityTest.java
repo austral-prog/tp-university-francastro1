@@ -68,13 +68,6 @@ public class UniversityTest {
     }
 }*/
 
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
-
-import java.util.List;
-import java.util.Map;
-
 public class UniversityTest {
     private University university;
     private Student student1;

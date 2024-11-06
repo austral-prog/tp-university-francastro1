@@ -15,7 +15,7 @@ public class CourseCreator implements  EntityCreator<Course>{
     public Course getOrCreate(String parts, List<Course> courses, University university) {
         String[] params = parts.split(",");
         int classroom = Integer.parseInt(params[0]);
-        String subject = params[1].trim();
+        String subject = params[1];
         Course course = findCourseBySubject(subject);
         if (course == null) {
             course = new Course(classroom, subject);

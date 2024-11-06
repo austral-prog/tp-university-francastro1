@@ -1,4 +1,4 @@
-package com.university;
+package com.university.cliTest;
 
 import com.university.cli.EntityNotFoundException;
 import org.junit.jupiter.api.Test;

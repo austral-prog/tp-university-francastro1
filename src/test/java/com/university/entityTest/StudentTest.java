@@ -1,4 +1,4 @@
-package com.university;
+package com.university.entityTest;
 
 import static org.junit.jupiter.api.Assertions.*;
 

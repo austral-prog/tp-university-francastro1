@@ -1,4 +1,4 @@
-package com.university;
+package com.university.entityTest;
 import com.university.entity.classroom.Course;
 import com.university.entity.classroom.Student;
 import org.junit.jupiter.api.BeforeEach;

@@ -1,7 +1,8 @@
-package com.university;
+package com.university.csvTest;
 
 import com.university.FileReader.creator.Creator;
 import com.university.FileReader.creator.Creator1;
+import com.university.University;
 import com.university.csv.CSVReader;
 import com.university.entity.evaluation.Evaluation;
 import com.university.entity.evaluation.criteria.CriteriaProcessor;

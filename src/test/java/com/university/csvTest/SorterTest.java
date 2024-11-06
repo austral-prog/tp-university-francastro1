@@ -1,4 +1,4 @@
-package com.university;
+package com.university.csvTest;
 
 import com.university.csv.Sorter;
 import com.university.entity.evaluation.*;

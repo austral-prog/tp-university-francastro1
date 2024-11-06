@@ -1,7 +1,8 @@
-package com.university;
+package com.university.CreatorTest;
 import static org.junit.jupiter.api.Assertions.*;
 
 import com.university.Creator.EvaluationCreator;
+import com.university.University;
 import com.university.entity.classroom.Student;
 import com.university.entity.evaluation.Evaluation;
 import org.junit.jupiter.api.BeforeEach;
@@ -36,13 +37,6 @@ public class EvaluationCreatorTest {
     }
 }
 */
-
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
-
-import java.util.ArrayList;
-import java.util.List;
 
 class EvaluationCreatorTest {
     private List<Evaluation> evaluations;

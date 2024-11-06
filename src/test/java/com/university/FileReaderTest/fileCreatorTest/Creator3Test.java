@@ -1,7 +1,8 @@
-package com.university;
+package com.university.FileReaderTest.fileCreatorTest;
 
 import com.university.FileReader.creator.Creator;
 import com.university.FileReader.creator.Creator3;
+import com.university.University;
 import com.university.entity.evaluation.criteria.CriteriaProcessor;
 import com.university.entity.evaluation.criteria.Criterion;
 import org.junit.jupiter.api.Test;

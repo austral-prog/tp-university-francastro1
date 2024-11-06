@@ -1,4 +1,4 @@
-package com.university;
+package com.university.crudrepositoryTest;
 
 import com.university.crudrepository.CRUDRepository;
 import com.university.entity.Entity;

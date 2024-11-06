@@ -15,8 +15,8 @@ public class StudentCreator implements EntityCreator<Student>{
 
     public Student getOrCreate(String parts, List<Student> students, University university) {
         String[] params = parts.split(",");
-        String studentName = params[2].trim();
-        String email = params[3].trim();
+        String studentName = params[2];
+        String email = params[3];
         Student student = findStudentByName(studentName, students);
         if (student == null) {
             student = new Student(studentName, email);
