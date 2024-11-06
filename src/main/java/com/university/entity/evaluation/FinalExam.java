@@ -2,10 +2,6 @@ package com.university.entity.evaluation;
 
 public class FinalExam extends Evaluation {
 
-    public FinalExam(){
-        super();
-    }
-
     public FinalExam(String name, String studentName,String subjectName, String evaluationType) {
         super(name, studentName, subjectName,evaluationType);
     }

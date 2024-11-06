@@ -3,6 +3,9 @@ package com.university.entity.evaluation.criteria;
 import com.university.University;
 import com.university.entity.classroom.Student;
 import com.university.entity.evaluation.Evaluation;
+import com.university.entity.evaluation.FinalExam;
+import com.university.entity.evaluation.WrittenExam;
+
 import java.util.*;
 import java.util.List;
 
@@ -57,4 +60,5 @@ public class CriteriaProcessor {
         return results;
     }
 }
+
 

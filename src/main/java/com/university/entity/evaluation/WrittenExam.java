@@ -2,10 +2,6 @@ package com.university.entity.evaluation;
 
 public class WrittenExam extends Evaluation{
 
-    public WrittenExam(){
-        super();
-    }
-
     public WrittenExam(String name, String studentName,String subjectName, String evaluationType) {
         super(name, studentName, subjectName,evaluationType);
     }

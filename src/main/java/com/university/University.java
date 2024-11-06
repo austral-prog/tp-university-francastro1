@@ -31,6 +31,10 @@ public class University {
         this.evaluations.add(evaluation);
     }
 
+    public void addStudent(Student student){
+        this.students.add(student);
+    }
+
     public Map<String, Integer> getStudentCourseCounts() {
         Map<String, Integer> studentCounts = new HashMap<>();
         for (Student student : students) {

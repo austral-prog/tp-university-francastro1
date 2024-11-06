@@ -2,10 +2,6 @@ package com.university.entity.evaluation;
 
 public class PracticalWork extends Evaluation{
 
-    public PracticalWork(){
-        super();
-    }
-
     public PracticalWork(String name, String studentName, String subjectName, String evaluationType) {
         super(name, studentName, subjectName, evaluationType);
     }

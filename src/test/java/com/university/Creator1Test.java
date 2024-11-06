@@ -1,5 +1,5 @@
 package com.university;
-/*
+
 import static org.junit.jupiter.api.Assertions.*;
 
 import com.university.FileReader.creator.Creator1;
@@ -64,4 +64,4 @@ public class Creator1Test {
         assertTrue(student2.getCourses().contains(course2));
     }
 }
-*/
+

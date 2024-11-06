@@ -15,8 +15,6 @@ public abstract class Evaluation implements Entity {
     private String evaluationType;
     private List<Double> grades;
 
-    public Evaluation(){}
-
     public Evaluation(String name, String studentName, String subjectName, String evaluationType){
         this.id = ++idCounter;
         this.name = name;

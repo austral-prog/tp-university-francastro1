@@ -28,6 +28,43 @@ public class CourseTest {
     }
 
     @Test
+    public void testInvalidCourseCreation() {
+        assertThrows(IllegalArgumentException.class, () -> {
+            new Course(-1, "Matemáticas");
+        }, "Classroom number cannot be negative");
+    }
+    @Test
+    void testSetClassroomThrowsExceptionForNegativeClassroom() {
+        Course course = new Course(101, "Matemáticas");
+        assertThrows(IllegalArgumentException.class, () -> {
+            course.setClassroom(-1);
+        }, "Classroom number cannot be negative");
+    }
+
+    @Test
+    void testSetClassroomValidValue() {
+        Course course = new Course(101, "Matemáticas");
+        course.setClassroom(102);
+        assertEquals(102, course.getClassroom(), "Classroom number should be updated to 102");
+    }
+
+    @Test
+    void testSetSubject() {
+        // Verificar que se puede cambiar el tema del curso
+        Course course = new Course(101, "Matemáticas");
+        course.setSubject("Física");
+        assertEquals("Física", course.getSubject(), "Subject should be updated to Física");
+    }
+
+    @Test
+    void testGetSubject() {
+        // Verificar que el método getSubject devuelve el valor correcto
+        Course course = new Course(101, "Matemáticas");
+        assertEquals("Matemáticas", course.getSubject(), "Subject should be Matemáticas");
+    }
+
+
+    @Test
     public void testAddStudent() {
         course.addStudent(student1);
         List<Student> students = course.getStudents();
