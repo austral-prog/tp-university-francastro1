@@ -1,17 +1,21 @@
 package com.university.Creator;
 
+import com.university.University;
 import com.university.entity.classroom.Course;
 
 import java.util.List;
 
-public class CourseCreator {
+public class CourseCreator implements  EntityCreator<Course>{
     private List<Course> courses;
 
     public CourseCreator(List<Course> courses) {
         this.courses = courses;
     }
 
-    public Course getOrCreateCourse(int classroom, String subject) {
+    public Course getOrCreate(String parts, List<Course> courses, University university) {
+        String[] params = parts.split(",");
+        int classroom = Integer.parseInt(params[0]);
+        String subject = params[1].trim();
         Course course = findCourseBySubject(subject);
         if (course == null) {
             course = new Course(classroom, subject);

@@ -9,15 +9,11 @@ import com.university.entity.classroom.Student;
 
 public class Creator1 implements Creator {
     @Override
-    public void create(String[] parts, University university, CriteriaProcessor criteriaProcessor) {
-        int classroom = Integer.parseInt(parts[0]);
-        String subject = parts[1].trim();
-        String studentName = parts[2].trim();
-        String email = parts[3].trim();
-        StudentCreator studentCreator = new StudentCreator();
+    public void create(String parts, University university, CriteriaProcessor criteriaProcessor) {
+        StudentCreator studentCreator = new StudentCreator(university.getStudents());
         CourseCreator courseCreator = new CourseCreator(university.getCourses());
-        Student student = studentCreator.getOrCreateStudent(studentName, email, university.getStudents());
-        Course course = courseCreator.getOrCreateCourse(classroom, subject);
+        Student student = studentCreator.getOrCreate(parts, university.getStudents(), university);
+        Course course = courseCreator.getOrCreate(parts, university.getCourses(), university);
         student.addToCourse(course);
         course.addStudent(student);
     }

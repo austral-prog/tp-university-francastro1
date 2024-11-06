@@ -7,14 +7,21 @@ import com.university.entity.evaluation.*;
 
 import java.util.List;
 
-public class EvaluationCreator {
+public class EvaluationCreator implements EntityCreator<Evaluation> {
     private List<Evaluation> evaluations;
 
     public EvaluationCreator(List<Evaluation> evaluations) {
         this.evaluations = evaluations;
     }
 
-    public Evaluation getOrCreateEvaluation(String subjectName, String evaluationName, String studentName, String evaluationType, double grade, University university) {
+    public Evaluation getOrCreate(String parts, List<Evaluation> evaluations, University university) {
+        String[] params = parts.split(",");
+        String studentName = params[0].trim();
+        String subjectName = params[1].trim();
+        String evaluationType = params[2].trim();
+        String evaluationName = params[3].trim();
+        double grade = Double.parseDouble(params[5].trim());
+
         Evaluation evaluation = findEvaluation(subjectName, evaluationName, studentName, evaluationType);
 
         Student student = findStudentByName(studentName, university);

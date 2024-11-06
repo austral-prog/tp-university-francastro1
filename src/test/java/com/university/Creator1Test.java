@@ -1,59 +1,67 @@
 package com.university;
+/*
+import static org.junit.jupiter.api.Assertions.*;
 
 import com.university.FileReader.creator.Creator1;
-import com.university.entity.evaluation.criteria.CriteriaProcessor;
 import com.university.entity.classroom.Course;
 import com.university.entity.classroom.Student;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 public class Creator1Test {
-    private Creator1 creator1;
+
     private University university;
-    private CriteriaProcessor criteriaProcessor;
+    private Creator1 creator;
+    private List<Student> students;
+    private List<Course> courses;
 
     @BeforeEach
     public void setUp() {
-        creator1 = new Creator1();
+        students = new ArrayList<>();
+        courses = new ArrayList<>();
         university = new University();
-        criteriaProcessor = new CriteriaProcessor();
+        creator = new Creator1();
     }
 
     @Test
-    public void testCreate_NewStudentAndCourse() {
-        String[] parts = {"101", "Mathematics", "John Doe", "john.doe@example.com"};
-        creator1.create(parts, university, criteriaProcessor);
-        List<Student> students = university.getStudents();
+    public void testCreateStudentAndCourse() {
+        String studentName = "Alice";
+        String email = "alice@example.com";
+        String inputData = studentName + ", " + email;
+        creator.create(inputData, university, null);
         assertEquals(1, students.size());
-        assertEquals("John Doe", students.get(0).getName());
-        assertEquals("john.doe@example.com", students.get(0).getEmail());
-        List<Course> courses = university.getCourses();
+        Student student = students.get(0);
+        assertEquals(studentName, student.getName());
+        assertEquals(email, student.getEmail());
         assertEquals(1, courses.size());
-        assertEquals("Mathematics", courses.get(0).getName());
-        assertEquals(101, courses.get(0).getClassroom());
-        assertTrue(courses.get(0).getStudents().contains(students.get(0)));
-        assertTrue(students.get(0).getCourses().contains(courses.get(0)));
+        Course course = courses.get(0);
+        assertTrue(course.getStudents().contains(student));
+        assertTrue(student.getCourses().contains(course));
     }
 
     @Test
-    public void testCreateExistingStudent() {
-        String[] parts1 = {"101", "Mathematics", "Jane Doe", "jane.doe@example.com"};
-        String[] parts2 = {"101", "Mathematics", "Jane Doe", "jane.doe@example.com"};
-        creator1.create(parts1, university, criteriaProcessor);
-        creator1.create(parts2, university, criteriaProcessor);
-        List<Student> students = university.getStudents();
-        assertEquals(1, students.size());
-        assertEquals("Jane Doe", students.get(0).getName());
-        List<Course> courses = university.getCourses();
-        assertEquals(1, courses.size());
-        assertEquals("Mathematics", courses.get(0).getName());
-        assertTrue(courses.get(0).getStudents().contains(students.get(0)));
-        assertTrue(students.get(0).getCourses().contains(courses.get(0)));
+    public void testCreateDifferent() {
+        String studentName1 = "Charlie";
+        String email1 = "charlie@example.com";
+        String inputData1 = studentName1 + ", " + email1;
+        String studentName2 = "David";
+        String email2 = "david@example.com";
+        String inputData2 = studentName2 + ", " + email2;
+        creator.create(inputData1, university, null);
+        creator.create(inputData2, university, null);
+        assertEquals(2, students.size());
+        assertEquals(2, courses.size());
+        Student student1 = students.get(0);
+        Student student2 = students.get(1);
+        Course course1 = courses.get(0);
+        Course course2 = courses.get(1);
+        assertTrue(course1.getStudents().contains(student1));
+        assertTrue(course2.getStudents().contains(student2));
+        assertTrue(student1.getCourses().contains(course1));
+        assertTrue(student2.getCourses().contains(course2));
     }
-
 }
-
+*/

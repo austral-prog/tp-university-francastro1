@@ -1,15 +1,25 @@
 package com.university.Creator;
 
+import com.university.University;
 import com.university.entity.classroom.Student;
 
 import java.util.List;
 
-public class StudentCreator {
+public class StudentCreator implements EntityCreator<Student>{
 
-    public Student getOrCreateStudent(String name, String email, List<Student> students) {
-        Student student = findStudentByName(name, students);
+    private List<Student> students;
+
+    public StudentCreator(List<Student> students){
+        this.students = students;
+    }
+
+    public Student getOrCreate(String parts, List<Student> students, University university) {
+        String[] params = parts.split(",");
+        String studentName = params[2].trim();
+        String email = params[3].trim();
+        Student student = findStudentByName(studentName, students);
         if (student == null) {
-            student = new Student(name, email);
+            student = new Student(studentName, email);
             students.add(student);
         }
         return student;

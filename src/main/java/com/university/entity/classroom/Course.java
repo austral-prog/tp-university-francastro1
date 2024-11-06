@@ -13,6 +13,8 @@ public class Course implements Entity {
     private String subject;
     private int classroom;
 
+    public Course(){}
+
     public Course(int classroom, String subject) {
         if (classroom < 0) {
             throw new IllegalArgumentException("Classroom number cannot be negative");
@@ -62,7 +64,6 @@ public class Course implements Entity {
         this.id = id;
     }
 
-    @Override
     public String getName() {
         return this.subject;
     }

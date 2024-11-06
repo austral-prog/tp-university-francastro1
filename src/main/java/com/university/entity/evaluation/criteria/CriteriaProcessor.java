@@ -13,6 +13,10 @@ public class CriteriaProcessor {
         criteriaList.add(criteria);
     }
 
+    public List<Criterion> getCriteriaList() {
+        return criteriaList;
+    }
+
     private Criterion findCriterionForSubject(String subject) {
         for (Criterion criterion : criteriaList) {
             if (criterion.getSubjectName().equals(subject)) {
@@ -36,13 +40,17 @@ public class CriteriaProcessor {
             }
             for (Map.Entry<String, List<Evaluation>> entry : subjectEvaluations.entrySet()) {
                 String subject = entry.getKey();
-                List<Evaluation> evaluations = entry.getValue();
                 Criterion criterion = findCriterionForSubject(subject);
                 boolean passed = false;
                 if (criterion != null) {
                     passed = criterion.evaluate(student);
                 }
-                String status = passed ? "PASSED" : "FAILED";
+                String status;
+                if (passed) {
+                    status = "PASSED";
+                } else {
+                    status = "FAILED";
+                }
                 results.add(student.getName() + "," + subject + "," + status);
             }
         }

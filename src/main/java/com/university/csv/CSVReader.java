@@ -15,7 +15,7 @@ public class CSVReader {
             reader.readLine();
 
             while ((line = reader.readLine()) != null) {
-                String[] parts = line.split(",");
+                String parts = line;
                 creator.create(parts, university, criteriaProcessor);
             }
         } catch (Exception e) {

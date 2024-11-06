@@ -1,1 +1,4 @@
-com.university.XRepository
+com.university.crudrepository.StudentRepository
+com.university.crudrepository.CourseRepository
+com.university.crudrepository.EvaluationRepository
+

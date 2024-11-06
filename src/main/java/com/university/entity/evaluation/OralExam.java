@@ -1,6 +1,11 @@
 package com.university.entity.evaluation;
 
 public class OralExam extends Evaluation{
+
+    public OralExam(){
+        super();
+    }
+
     public OralExam(String name, String studentName,String subjectName, String evaluationType) {
         super(name, studentName, subjectName,evaluationType);
     }
