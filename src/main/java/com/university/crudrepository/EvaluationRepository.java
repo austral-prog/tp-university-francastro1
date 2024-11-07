@@ -39,7 +39,7 @@ public class EvaluationRepository implements CRUDRepository<Evaluation> {
         return Evaluation.class;
     }
 
-    public Map<Integer, Evaluation> getEvalRepo() {
+    public Map<Integer, Evaluation> getRepo() {
         return evalRepo;
     }
 }

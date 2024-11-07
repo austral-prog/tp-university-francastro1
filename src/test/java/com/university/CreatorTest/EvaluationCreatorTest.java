@@ -10,33 +10,6 @@ import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.List;
-/*
-public class EvaluationCreatorTest {
-    private List<Evaluation> evaluations;
-    private University university;
-    private EvaluationCreator evaluationCreator;
-
-    @BeforeEach
-    public void setUp() {
-        evaluations = new ArrayList<>();
-        university = new University();
-        evaluationCreator = new EvaluationCreator(evaluations);
-    }
-
-    @Test
-    public void testCreateEvaluation() {
-        String subjectName = "Biology";
-        String evaluationName = "FinalExam";
-        String studentName = "David";
-        String evaluationType = "FINAL_PRACTICAL_WORK";
-        Evaluation evaluation = EvaluationCreator.createEvaluation(subjectName, evaluationName, studentName, evaluationType);
-        assertEquals("FINAL_PRACTICAL_WORK", evaluation.getEvaluationType());
-        assertEquals(subjectName, evaluation.getSubjectName());
-        assertEquals(evaluationName, evaluation.getName());
-        assertEquals(studentName, evaluation.getStudentName());
-    }
-}
-*/
 
 class EvaluationCreatorTest {
     private List<Evaluation> evaluations;
@@ -49,7 +22,13 @@ class EvaluationCreatorTest {
         evaluationCreator = new EvaluationCreator(evaluations);
         university = new University();
         Student student = new Student("John Doe","john@doe.com");
+        Student student1 = new Student("Alice Azure","alice@gmail.com");
+        Student student2 = new Student("Paul Beige","paul@gmail.com");
+        Student student3 = new Student("Olivia Red","olivi@gmail.com");
         university.addStudent(student);
+        university.addStudent(student1);
+        university.addStudent(student2);
+        university.addStudent(student3);
     }
 
     @Test
@@ -77,6 +56,22 @@ class EvaluationCreatorTest {
         assertEquals("Programacion", fetchedEvaluation.getSubjectName());
         assertEquals("Parcial", fetchedEvaluation.getName());
         assertEquals("John Doe", fetchedEvaluation.getStudentName());
+    }
+
+    @Test
+    void testMultipleEvaluationTypeCreation(){
+        String parts1 = "John Doe, Economics, WRITTEN_EXAM, Primer Parcial, , 8.0";
+        String parts2 = "Alice Azure, Math, ORAL_EXAM, Oral Exam, , 8.0";
+        String parts3 = "Paul Beige, History, FINAL_PRACTICAL_WORK, Final, , 8.0";
+        String parts4 = "Olivia Red, Arts, PRACTICAL_WORK, Tp2, , 8.0";
+        Evaluation evaluation1 = evaluationCreator.getOrCreate(parts1,evaluations,university);
+        Evaluation evaluation2 = evaluationCreator.getOrCreate(parts2,evaluations,university);
+        Evaluation evaluation3 = evaluationCreator.getOrCreate(parts3,evaluations,university);
+        Evaluation evaluation4 = evaluationCreator.getOrCreate(parts4,evaluations,university);
+        assertEquals("WRITTEN_EXAM", evaluation1.getEvaluationType());
+        assertEquals("ORAL_EXAM", evaluation2.getEvaluationType());
+        assertEquals("FINAL_PRACTICAL_WORK", evaluation3.getEvaluationType());
+        assertEquals("PRACTICAL_WORK", evaluation4.getEvaluationType());
     }
 
     @Test

@@ -39,7 +39,7 @@ public class StudentRepository implements CRUDRepository<Student> {
         return Student.class;
     }
 
-    public Map<Integer, Student> getStudentRepo() {
+    public Map<Integer, Student> getRepo() {
         return studentRepo;
     }
 }

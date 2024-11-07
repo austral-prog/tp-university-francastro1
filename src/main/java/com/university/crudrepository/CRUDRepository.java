@@ -3,6 +3,8 @@ package com.university.crudrepository;
 import com.university.entity.Entity;
 import com.university.entity.classroom.Course;
 
+import java.util.Map;
+
 public interface CRUDRepository<T extends Entity> {
     /**
      * Creates a new entity in the repository.
@@ -43,4 +45,6 @@ public interface CRUDRepository<T extends Entity> {
     String getIdentifier();
 
     Class<T> getEntityClass();
+
+    Map<Integer, T> getRepo();
 }
