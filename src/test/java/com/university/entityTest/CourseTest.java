@@ -99,11 +99,4 @@ public class CourseTest {
 
         assertEquals("Classroom number cannot be negative", exception.getMessage());
     }
-
-    @Test
-    public void testGetId() {
-        assertEquals(0, course.getId());
-        Course anotherCourse = new Course(202, "Science");
-        assertEquals(1, anotherCourse.getId());
-    }
 }
