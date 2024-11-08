@@ -17,16 +17,16 @@ public class StudentCreator implements EntityCreator<Student>{
         String[] params = parts.split(",");
         String studentName = params[2];
         String email = params[3];
-        Student student = findStudentByName(studentName, students);
+        Student student = findStudentByName(studentName, university);
         if (student == null) {
             student = new Student(studentName, email);
-            students.add(student);
+            university.getStudents().add(student);
         }
         return student;
     }
 
-    private Student findStudentByName(String name, List<Student> students) {
-        for (Student student : students) {
+    private Student findStudentByName(String name, University university) {
+        for (Student student : university.getStudents()) {
             if (student.getName().equals(name)) {
                 return student;
             }

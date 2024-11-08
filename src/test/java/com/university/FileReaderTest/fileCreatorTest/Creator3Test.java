@@ -21,7 +21,7 @@ public class Creator3Test {
         creator.create(parts, university, criteriaProcessor);
         List<Criterion> criteriaList = criteriaProcessor.getCriteriaList();
         assertEquals(1, criteriaList.size());
-        Criterion criterion = criteriaList.get(0);
+        Criterion criterion = criteriaList.getFirst();
         assertEquals("Geography", criterion.getSubjectName());
 
     }

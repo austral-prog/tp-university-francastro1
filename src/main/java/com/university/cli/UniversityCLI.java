@@ -73,7 +73,7 @@ public class UniversityCLI implements CLI{
             case 2:
                 System.out.println("Enter ID to read:");
                 int readId = scanner.nextInt();
-                Object readStudent = repository.read(readId);
+                Student readStudent = repository.read(readId);
                 System.out.println("Read: " + readStudent);
                 break;
             case 3:
@@ -155,7 +155,7 @@ public class UniversityCLI implements CLI{
             case 2:
                 System.out.println("Enter ID to read:");
                 int readId = scanner.nextInt();
-                Object readEvaluation = repository.read(readId);
+                Evaluation readEvaluation = repository.read(readId);
                 System.out.println("Read: " + readEvaluation);
                 break;
             case 3:

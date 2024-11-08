@@ -10,7 +10,7 @@ import java.util.*;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class CriterionTest {
+public class  CriterionTest {
     private Student student;
     private Criterion averageCriterion;
     private Criterion maxCriterion;

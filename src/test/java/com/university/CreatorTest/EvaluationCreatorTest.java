@@ -35,13 +35,13 @@ class EvaluationCreatorTest {
     void testNewEvaluation() {
         String parts = "John Doe, Programacion, WRITTEN_EXAM, Parcial, , 8.5";
         Evaluation evaluation = evaluationCreator.getOrCreate(parts, evaluations, university);
-        assertEquals(1, evaluations.size());
+        assertEquals(1, university.getEvaluations().size());
         assertEquals("Programacion", evaluation.getSubjectName());
         assertEquals("Parcial", evaluation.getName());
         assertEquals("John Doe", evaluation.getStudentName());
         assertEquals("WRITTEN_EXAM", evaluation.getEvaluationType());
 
-        Student student = university.getStudents().get(0);
+        Student student = university.getStudents().getFirst();
         assertTrue(student.getEvaluations().contains(evaluation));
     }
 
@@ -51,7 +51,7 @@ class EvaluationCreatorTest {
         Evaluation initialEvaluation = evaluationCreator.getOrCreate(parts, evaluations, university);
         String newParts = "John Doe, Programacion, WRITTEN_EXAM, Parcial, , 7.0";
         Evaluation fetchedEvaluation = evaluationCreator.getOrCreate(newParts, evaluations, university);
-        assertEquals(1, evaluations.size());
+        assertEquals(1, university.getEvaluations().size());
         assertEquals(initialEvaluation, fetchedEvaluation);
         assertEquals("Programacion", fetchedEvaluation.getSubjectName());
         assertEquals("Parcial", fetchedEvaluation.getName());
@@ -59,7 +59,7 @@ class EvaluationCreatorTest {
     }
 
     @Test
-    void testMultipleEvaluationTypeCreation(){
+    void testMultipleEvaluationCreation(){
         String parts1 = "John Doe, Economics, WRITTEN_EXAM, Primer Parcial, , 8.0";
         String parts2 = "Alice Azure, Math, ORAL_EXAM, Oral Exam, , 8.0";
         String parts3 = "Paul Beige, History, FINAL_PRACTICAL_WORK, Final, , 8.0";

@@ -23,18 +23,18 @@ public class StudentCreatorTest {
     }
 
     @Test
-    public void testGetOrCreate() {
+    public void testCreateStudent() {
         String studentName = "Alice";
         String email = "alice@example.com";
         String inputData = "Some, data," + studentName + "," + email;
         Student student = studentCreator.getOrCreate(inputData, students, university);
         assertEquals(studentName, student.getName());
         assertEquals(email, student.getEmail());
-        assertTrue(students.contains(student));
+        assertTrue(university.getStudents().contains(student));
     }
 
     @Test
-    public void testGetOrCreateWhenStudentAlreadyExists() {
+    public void testStudentExists() {
         String studentName = "Bob";
         String email = "bob@example.com";
         String inputData = "Some, data," + studentName + "," + email;
@@ -42,11 +42,11 @@ public class StudentCreatorTest {
         Student student = studentCreator.getOrCreate(inputData, students, university);
         assertEquals(studentName, student.getName());
         assertEquals(email, student.getEmail());
-        assertEquals(1, students.size());
+        assertEquals(1, university.getStudents().size());
     }
 
     @Test
-    public void testGetOrCreateWithDifferentData() {
+    public void testCreateWithDifferentData() {
         String studentName1 = "Charlie";
         String email1 = "charlie@example.com";
         String inputData1 = "Some, data," + studentName1 + "," + email1;
@@ -55,9 +55,9 @@ public class StudentCreatorTest {
         String inputData2 = "Some, data," + studentName2 + "," + email2;
         studentCreator.getOrCreate(inputData1, students, university);
         studentCreator.getOrCreate(inputData2, students, university);
-        assertEquals(2, students.size());
-        assertTrue(students.stream().anyMatch(s -> s.getName().equals(studentName1)));
-        assertTrue(students.stream().anyMatch(s -> s.getName().equals(studentName2)));
+        assertEquals(2, university.getStudents().size());
+        assertTrue(university.getStudents().stream().anyMatch(s -> s.getName().equals(studentName1)));
+        assertTrue(university.getStudents().stream().anyMatch(s -> s.getName().equals(studentName2)));
     }
 
 }

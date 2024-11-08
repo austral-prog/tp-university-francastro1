@@ -16,16 +16,16 @@ public class CourseCreator implements  EntityCreator<Course>{
         String[] params = parts.split(",");
         int classroom = Integer.parseInt(params[0]);
         String subject = params[1];
-        Course course = findCourseBySubject(subject);
+        Course course = findCourseBySubject(subject, university);
         if (course == null) {
             course = new Course(classroom, subject);
-            courses.add(course);
+            university.getCourses().add(course);
         }
         return course;
     }
 
-    private Course findCourseBySubject(String subject) {
-        for (Course course : courses) {
+    private Course findCourseBySubject(String subject, University university) {
+        for (Course course : university.getCourses()) {
             if (course.getName().equals(subject)) {
                 return course;
             }

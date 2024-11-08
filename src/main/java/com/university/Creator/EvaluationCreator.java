@@ -22,7 +22,7 @@ public class EvaluationCreator implements EntityCreator<Evaluation> {
         String evaluationName = params[3].trim();
         double grade = Double.parseDouble(params[5].trim());
 
-        Evaluation evaluation = findEvaluation(subjectName, evaluationName, studentName, evaluationType);
+        Evaluation evaluation = findEvaluation(subjectName, evaluationName, studentName, evaluationType, university);
 
         Student student = findStudentByName(studentName, university);
         if (student == null) {
@@ -31,7 +31,7 @@ public class EvaluationCreator implements EntityCreator<Evaluation> {
 
         if (evaluation == null) {
             evaluation = createEvaluation(subjectName, evaluationName, studentName, evaluationType);
-            evaluations.add(evaluation);
+            university.getEvaluations().add(evaluation);
             student.addEvaluation(evaluation);
         } else if (!student.getEvaluations().contains(evaluation)) {
             student.addEvaluation(evaluation);
@@ -42,8 +42,8 @@ public class EvaluationCreator implements EntityCreator<Evaluation> {
     }
 
     private Evaluation findEvaluation (String subjectName, String evaluationName, String studentName, String
-            evaluationType){
-        for (Evaluation e : evaluations) {
+            evaluationType, University university){
+        for (Evaluation e : university.getEvaluations()) {
             if (e.getSubjectName().equals(subjectName) &&
                     e.getName().equals(evaluationName) &&
                     e.getStudentName().equals(studentName) &&

@@ -43,33 +43,30 @@ public class CourseTest {
 
     @Test
     void testSetClassroomValidValue() {
-        Course course = new Course(101, "Matemáticas");
+        Course course = new Course(101, "Math");
         course.setClassroom(102);
-        assertEquals(102, course.getClassroom(), "Classroom number should be updated to 102");
+        assertEquals(102, course.getClassroom());
     }
 
     @Test
     void testSetSubject() {
-        // Verificar que se puede cambiar el tema del curso
-        Course course = new Course(101, "Matemáticas");
-        course.setSubject("Física");
-        assertEquals("Física", course.getSubject(), "Subject should be updated to Física");
+        Course course = new Course(101, "Math");
+        course.setSubject("Physics");
+        assertEquals("Physics", course.getSubject());
     }
 
     @Test
     void testGetSubject() {
-        // Verificar que el método getSubject devuelve el valor correcto
-        Course course = new Course(101, "Matemáticas");
-        assertEquals("Matemáticas", course.getSubject(), "Subject should be Matemáticas");
+        Course course = new Course(101, "Math");
+        assertEquals("Math", course.getSubject());
     }
-
 
     @Test
     public void testAddStudent() {
         course.addStudent(student1);
         List<Student> students = course.getStudents();
-        assertEquals(1, students.size(), "Course should have one student after adding.");
-        assertTrue(students.contains(student1), "Course should contain student1.");
+        assertEquals(1, students.size());
+        assertTrue(students.contains(student1));
     }
 
     @Test
@@ -85,7 +82,6 @@ public class CourseTest {
         course.addStudent(student1);
         course.addStudent(student2);
         List<Student> students = course.getStudents();
-
         assertEquals(2, students.size());
         assertTrue(students.contains(student1));
         assertTrue(students.contains(student2));
@@ -96,7 +92,6 @@ public class CourseTest {
         Exception exception = assertThrows(IllegalArgumentException.class, () -> {
             course.setClassroom(-1);
         });
-
         assertEquals("Classroom number cannot be negative", exception.getMessage());
     }
 }

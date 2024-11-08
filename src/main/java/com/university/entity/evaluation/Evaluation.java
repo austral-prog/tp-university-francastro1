@@ -49,6 +49,7 @@ public abstract class Evaluation implements Entity {
     public void setStudentName(String studentName) {
         this.studentName = studentName;
     }
+
     public void setSubjectName(String subjectName) {this.subjectName = subjectName;}
 
     public String getSubjectName() {

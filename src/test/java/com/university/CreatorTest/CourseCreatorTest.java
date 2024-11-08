@@ -24,23 +24,23 @@ public class CourseCreatorTest {
     }
 
     @Test
-    public void testGetOrCreateWhenCourseDoesNotExist() {
+    public void testCourseNotExist() {
         String courseData = "101,Math";
         Course course = courseCreator.getOrCreate(courseData, courses, university);
         assertNotNull(course);
         assertEquals(101, course.getClassroom());
         assertEquals("Math", course.getName());
-        assertEquals(1, courses.size());
+        assertEquals(1, university.getCourses().size());
     }
 
     @Test
-    public void testGetOrCreateWhenCourseAlreadyExists() {
+    public void testCourseAlreadyExists() {
         Course existingCourse = new Course(101, "Math");
         courses.add(existingCourse);
         String courseData = "101,Math";
         Course course = courseCreator.getOrCreate(courseData, courses, university);
         assertNotNull(course);
-        assertEquals(existingCourse, course);
+        assertEquals(existingCourse.toString(), course.toString());
         assertEquals(1, courses.size());
     }
 

@@ -39,7 +39,6 @@ class Writer1Test {
         student1.addToCourse(course1);
         university.addStudent(student1);
         university.addStudent(student2);
-        Map<String, Integer> studentCourseCounts = university.getStudentCourseCounts();
         StringWriter stringWriter = new StringWriter();
         BufferedWriter bufferedWriter = new BufferedWriter(stringWriter);
         writer1.write(university, null, bufferedWriter);

@@ -45,6 +45,4 @@ public interface CRUDRepository<T extends Entity> {
     String getIdentifier();
 
     Class<T> getEntityClass();
-
-    Map<Integer, T> getRepo();
 }

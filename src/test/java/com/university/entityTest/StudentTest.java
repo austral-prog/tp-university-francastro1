@@ -40,7 +40,6 @@ public class StudentTest {
     public void testAddToCourse() {
         Course course = new Course(101, "History");
         student.addToCourse(course);
-
         assertEquals(1, student.getCourseCount());
     }
 }
